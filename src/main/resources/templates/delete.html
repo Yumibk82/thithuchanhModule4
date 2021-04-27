@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+</head>
+<body>
+<form th:action="@{/city/delete}" method="post" th:object="${city}">
+    <h1>ARE YOU SURE TO DELETE?</h1>
+    <input type="hidden" th:field="*{cityId}">
+    <input type="submit" value="Delete"/>
+    <button><a th:href="@{/city/list}">Back</a></button>
+    </div>
+</form>
+</body>
+</html>

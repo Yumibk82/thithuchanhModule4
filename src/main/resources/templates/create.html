@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create new city</title>
+</head>
+<body>
+<h1>Create new city</h1>
+<a th:href="@{/city/list}">City list</a>
+<form enctype="multipart/form-data" method="post" th:action="@{/city/create}" th:object="${city}">
+  <table>
+    <tr>
+      <td>City's name</td>
+      <td><input th:field="*{cityName}" type="text"></td>
+<!--      <td th:if="${#fields.hasErrors('cityName')}" th:errors="*{cityName}">Name Error</td>-->
+    </tr>
+    <tr>
+      <td>National
+      <select th:field="*{national}">
+        <option th:each="n : ${nations}"
+            th:value="${n.nationId}"
+            th:text="${n.nationName}">
+        </option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Area</td>
+      <td><input th:field="*{area}" type="text"></td>
+    </tr>
+    <tr>
+      <td>Population</td>
+      <td><input th:field="*{population}" type="text"></td>
+    </tr>
+    <tr>
+      <td>Gross Domestic Product</td>
+      <td><input th:field="*{gdp}" type="text"></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <textarea th:field="*{description}" cols="30" rows="10"></textarea>
+<!--      <td><input th:field="*{description}" type="text"></td>-->
+    </tr>
+    <tr>
+      <td>
+        <button>Create</button>
+      </td>
+    </tr>
+  </table>
+
+
+</form>
+</body>
+</html>

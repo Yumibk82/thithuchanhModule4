@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <title>Title</title>
+</head>
+<body>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">City Name</th>
+    <th scope="col">National</th>
+    <th scope="col">Area</th>
+    <th scope="col">Population</th>
+    <th scope="col">Gross Domestic Product</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <th:block th:each="city: ${list}">
+    <tr>
+      <td>
+        <span th:each="city : ${city.cityId}">
+        <span th:text="${cityStat.count}"></span>
+        </span>
+      </td>
+      <td th:text="${city.cityId}"></td>
+      <td><a th:text="${city.cityName}" th:href="@{/city/view/__${city.cityId}__ }"></a></td>
+      <td th:text="${city.national.getNationName()}"></td>
+      <td><a th:href="@{/city/edit/__${city.cityId}__ }">Edit</a></td>
+      <td><a th:href="@{/city/delete/__${city.cityId}__ }">Delete</a></td>
+    </tr>
+  </th:block>
+  </tbody>
+</table>
+
+</body>
+</html>

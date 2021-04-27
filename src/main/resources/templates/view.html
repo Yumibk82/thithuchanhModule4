@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Detail information</h1>
+
+<div>
+  <p>City Name: <span th:text="${view.cityName}"></span>.</p>
+  <p>National: <span th:text="${view.national.getNationName()}"></span>.</p>
+  <p>Area <span th:text="${view.area}"></span>.</p>
+  <p>Population <span th:text="${view.population}"></span>.</p>
+  <p>Gross Domestic Product <span th:text="${view.gdp}"></span>.</p>
+  <textarea cols="30" rows="10" th:text="${view.description}" >Description</textarea>
+</div>
+
+<a th:href="@{/city/list}">
+  <button>Back</button>
+</a>
+
+
+</body>
+</html>
